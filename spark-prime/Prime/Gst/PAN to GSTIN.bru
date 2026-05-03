@@ -5,13 +5,13 @@ meta {
 }
 
 get {
-  url: {{base_url}}/api/spark/prime/gst/pantogstin?pan=AAACU5552C
+  url: {{base_url}}/api/spark/prime/gst/pantogstin?pan={{pan}}
   body: none
   auth: inherit
 }
 
 params:query {
-  pan: AAACU5552C
+  pan: {{pan}}
 }
 
 headers {
@@ -20,4 +20,5 @@ headers {
 
 settings {
   encodeUrl: true
+  timeout: 0
 }
