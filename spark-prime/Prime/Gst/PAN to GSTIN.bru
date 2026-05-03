@@ -1,0 +1,23 @@
+meta {
+  name: PAN to GSTIN
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base_url}}/api/spark/prime/gst/pantogstin?pan=AAACU5552C
+  body: none
+  auth: inherit
+}
+
+params:query {
+  pan: AAACU5552C
+}
+
+headers {
+  Octa-ApiKey: {{api_key}}
+}
+
+settings {
+  encodeUrl: true
+}

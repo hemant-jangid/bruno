@@ -1,0 +1,26 @@
+meta {
+  name: Get EwayBill PDF
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base_url}}/api/spark/prime/ewb/getewaybillpdf?ewbno=141011805638
+  body: json
+  auth: inherit
+}
+
+params:query {
+  ewbno: 141011805638
+}
+
+headers {
+  gstin: {{gstin}}
+  irp-api-username: {{irp-api-username}}
+  irp-api-password: {{irp-api-password}}
+  Octa-ApiKey: {{api_key}}
+}
+
+settings {
+  encodeUrl: true
+}

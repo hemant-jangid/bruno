@@ -1,0 +1,24 @@
+meta {
+  name: Get Gstr2B
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{base_url}}/api/spark/prime/gst/gstr2b?gstin={{gstin}}&period=012025
+  body: none
+  auth: inherit
+}
+
+params:query {
+  gstin: {{gstin}}
+  period: 012025
+}
+
+headers {
+  Octa-ApiKey: {{api_key}}
+}
+
+settings {
+  encodeUrl: true
+}

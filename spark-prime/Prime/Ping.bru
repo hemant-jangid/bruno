@@ -1,0 +1,23 @@
+meta {
+  name: Ping
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{base_url}}/api/spark/system/ping
+  body: none
+  auth: inherit
+}
+
+headers {
+  Octa-ApiKey: {{api_key}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  This API key can be used to test the connectivity with the Spark API server. It also verifies that the API key has been configured correctly.
+}

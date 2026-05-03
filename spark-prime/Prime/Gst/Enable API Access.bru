@@ -1,0 +1,28 @@
+meta {
+  name: Enable API Access
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{base_url}}/api/spark/prime/gst/enableapiaccess
+  body: json
+  auth: inherit
+}
+
+headers {
+  Octa-ApiKey: {{api_key}}
+}
+
+body:json {
+  {
+    "gstin": "34XXXXX5552C1ZO",
+    "userName": "xxx",
+    "password": "xxx"
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+}

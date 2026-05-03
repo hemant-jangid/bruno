@@ -1,0 +1,25 @@
+meta {
+  name: Get Gstr1 - Encryption Mode
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{base_url}}/api/spark/prime/gst/gstr1?gstin={{gstin}}&period=012025
+  body: none
+  auth: inherit
+}
+
+params:query {
+  gstin: {{gstin}}
+  period: 012025
+}
+
+headers {
+  Octa-ApiKey: {{api_key}}
+  Octa-Response-Secret: DxFe3px5SBIWsXnqe4FbpmdTBKADG/wQLg9zSztKY5j9CZQvwtM8skP1vOPhvcQfS69z7TPUUWl19QN5WRJ33EOQfO5wBzmGLZJOicWkre+98KY6AQ2xW4ih0rx/z+jJoa++StbF1cHfsihzsdX+vj7KL5+hLAPB+QWhWW3zaHdh48EpWxACJpUmUU5JEB0baCo3K1K6kqQtDWWBDj0mtgW10S+3TjJRnwDMG7jSe3dkCXD41YJ0xJ/BxayLq9oftxsU3yDCd3nLm2mkkqPYZHvrHu88uA7n/4u3BjggRYp6WhP53+Ib+gdqEqUTZuGARwxgl4TnD6lFSJ48wTsv4g==
+}
+
+settings {
+  encodeUrl: true
+}

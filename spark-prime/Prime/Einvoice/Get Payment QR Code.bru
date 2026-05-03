@@ -1,0 +1,38 @@
+meta {
+  name: Get Payment QR Code
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{base_url}}/api/spark/prime/einvoice/getpaymentqrcode
+  body: json
+  auth: inherit
+}
+
+headers {
+  Octa-ApiKey: {{api_key}}
+}
+
+body:json {
+  {
+    "upiId": "blow123@idfcbank",
+    "upiPayeeName": "Blowbits Solutions LLP",
+    "gstin": "08AASFB9647G1ZU",
+    "docNo": "INV-1001",
+    "docDate": "05-04-2026",
+    "docValue": 1180.00,
+    "taxableValue": 1000.00,
+    "igst": null,
+    "cgst": 90.00,
+    "sgst": 90.00,
+    "cess": 0.00,
+    "stateCess": null,
+    "bankAccountNo": "123456789012",
+    "branchIfscCode": "SBIN0001234"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
