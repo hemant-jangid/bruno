@@ -6,6 +6,8 @@ info:
 collections:
   - name: "Prime"
     path: "./collections/Prime"
+  - name: "Scratch Pad"
+    path: "collections/Scratch Pad"
 
 specs:
 
