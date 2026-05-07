@@ -1,0 +1,7 @@
+info:
+  name: Gstr-2B
+  type: folder
+  seq: 4
+
+request:
+  auth: inherit

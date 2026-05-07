@@ -1,0 +1,34 @@
+info:
+  name: Save
+  type: http
+  seq: 8
+
+http:
+  method: PUT
+  url: "{{base_url}}/api/spark/core/gst/taxpayer/returns/gstr3b?gstin={{gstin}}&action=RETSAVE&ret_period=032025"
+  headers:
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  params:
+    - name: gstin
+      value: "{{gstin}}"
+      type: query
+    - name: action
+      value: RETSAVE
+      type: query
+    - name: ret_period
+      value: "032025"
+      type: query
+  body:
+    type: json
+    data: |-
+      {
+          //Refer Payload details available on https://developer.gst.gov.in/
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

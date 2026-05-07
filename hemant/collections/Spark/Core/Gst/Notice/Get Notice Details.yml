@@ -1,0 +1,28 @@
+info:
+  name: Get Notice Details
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{base_url}}/api/spark/core/gst/taxpayer/notices?gstin={{gstin}}&action=NOTCEDETAILS&refId=ZI2D703261181785"
+  headers:
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  params:
+    - name: gstin
+      value: "{{gstin}}"
+      type: query
+    - name: action
+      value: NOTCEDETAILS
+      type: query
+    - name: refId
+      value: ZI2D703261181785
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

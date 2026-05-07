@@ -1,0 +1,27 @@
+info:
+  name: Get Gstr1 - Encryption Mode
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: "{{base_url}}/api/spark/prime/gst/gstr1?gstin={{gstin}}&period=012025"
+  headers:
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+    - name: Octa-Response-Secret
+      value: DxFe3px5SBIWsXnqe4FbpmdTBKADG/wQLg9zSztKY5j9CZQvwtM8skP1vOPhvcQfS69z7TPUUWl19QN5WRJ33EOQfO5wBzmGLZJOicWkre+98KY6AQ2xW4ih0rx/z+jJoa++StbF1cHfsihzsdX+vj7KL5+hLAPB+QWhWW3zaHdh48EpWxACJpUmUU5JEB0baCo3K1K6kqQtDWWBDj0mtgW10S+3TjJRnwDMG7jSe3dkCXD41YJ0xJ/BxayLq9oftxsU3yDCd3nLm2mkkqPYZHvrHu88uA7n/4u3BjggRYp6WhP53+Ib+gdqEqUTZuGARwxgl4TnD6lFSJ48wTsv4g==
+  params:
+    - name: gstin
+      value: "{{gstin}}"
+      type: query
+    - name: period
+      value: "012025"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

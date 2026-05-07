@@ -1,0 +1,34 @@
+info:
+  name: Get File Details
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{base_url}}/api/spark/core/gst/taxpayer/returns?gstin={{gstin}}&action=FILEDET&ret_period=032025&token=235362728819329"
+  headers:
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  params:
+    - name: gstin
+      value: "{{gstin}}"
+      type: query
+    - name: action
+      value: FILEDET
+      type: query
+    - name: ret_period
+      value: "032025"
+      type: query
+    - name: token
+      value: "235362728819329"
+      type: query
+  body:
+    type: json
+    data: ""
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,31 @@
+info:
+  name: Get IMS Request Status
+  type: http
+  seq: 5
+
+http:
+  method: GET
+  url: "{{base_url}}/api/spark/core/gst/taxpayer/returns/ims?gstin={{gstin}}&action=REQSTS&int_tran_id=3afc6ae7abe546fc9e63cc2b4f08eb09"
+  headers:
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  params:
+    - name: gstin
+      value: "{{gstin}}"
+      type: query
+    - name: action
+      value: REQSTS
+      type: query
+    - name: int_tran_id
+      value: 3afc6ae7abe546fc9e63cc2b4f08eb09
+      type: query
+  body:
+    type: json
+    data: ""
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

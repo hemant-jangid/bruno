@@ -1,0 +1,85 @@
+info:
+  name: Generate IRN
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/api/spark/core/einvoice/generateirn"
+  headers:
+    - name: gstin
+      value: "{{gstin}}"
+    - name: irp-api-username
+      value: "{{irp-api-username}}"
+    - name: irp-api-password
+      value: "{{irp-api-password}}"
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  body:
+    type: json
+    data: |-
+      {
+        "Version": "1.1",
+        "TranDtls": {
+          "TaxSch": "GST",
+          "SupTyp": "B2B",
+          "RegRev": "N"
+        },
+        "DocDtls": {
+          "Typ": "INV",
+          "No": "TH46042826",
+          "Dt": "26/03/2026"
+        },
+        "SellerDtls": {
+          "Gstin": "29AASFB9647G000",
+          "LglNm": "Sandbox Blowbits Solutions LLP",
+          "TrdNm": "Sandbox Blowbits Solutions LLP",
+          "Addr1": "14 MG Road",
+          "Addr2": "Opposite SBI Branch",
+          "Loc": "Bangalore",
+          "Pin": 560068,
+          "Stcd": "29",
+          "Ph": "9829241235",
+          "Em": "sales@octagst.com"
+        },
+        "BuyerDtls": {
+          "Gstin": "29AAACB2894G1ZJ",
+          "LglNm": "Bharti AirTel",
+          "TrdNm": "Bharti AirTel",
+          "Pos": "29",
+          "Addr1": "55, DIVYASREE TOWERS, BANNERGHATTA MAIN ROAD,",
+          "Loc": "BENGALURU",
+          "Pin": 560029,
+          "Stcd": "29"
+        },
+        "ItemList": [
+          {
+            "SlNo": "1",
+            "PrdDesc": "Mobie Charger",
+            "IsServc": "N",
+            "HsnCd": "85044030",
+            "Qty": 1,
+            "Unit": "OTH",
+            "UnitPrice": 4500,
+            "TotAmt": 4500,
+            "AssAmt": 4500,
+            "GstRt": 18,
+            "CgstAmt": 405,
+            "SgstAmt": 405,
+            "TotItemVal": 5310
+          }
+        ],
+        "ValDtls": {
+          "AssVal": 4500,
+          "CgstVal": 405,
+          "SgstVal": 405,
+          "TotInvVal": 5310
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

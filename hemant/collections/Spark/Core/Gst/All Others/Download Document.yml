@@ -1,0 +1,40 @@
+info:
+  name: Download Document
+  type: http
+  seq: 7
+
+http:
+  method: GET
+  url: "{{base_url}}/api/spark/core/gst/taxpayer/document?gstin={{gstin}}&action=DOCDOWNLOAD&doc_id=20260327349302&form_typ=NOTICE"
+  headers:
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  params:
+    - name: gstin
+      value: "{{gstin}}"
+      type: query
+    - name: action
+      value: DOCDOWNLOAD
+      type: query
+    - name: doc_id
+      value: "20260327349302"
+      type: query
+    - name: form_typ
+      value: NOTICE
+      type: query
+  body:
+    type: json
+    data: |2
+          {
+              "gstin": "33AXTPJ8438P2ZH",
+              "url": "https://files.gst.gov.in/ims/28032026/EXCEL/5b19c598ce854f24ada424bf4ab81cac/08AASFB9647G1ZU_012026_Received_1.tar.gz?md5=zTAKI4EXCf9Q8kdHJjkgqQ&expires=1774860444",
+              "encryptionKey":"yBpE47ZEby5qEemRjYKCZ+Wq1zIjk/Ss+EmG8RQsRSA="
+
+          }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

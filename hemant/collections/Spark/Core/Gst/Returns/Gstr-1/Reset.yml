@@ -1,0 +1,35 @@
+info:
+  name: Reset
+  type: http
+  seq: 27
+
+http:
+  method: POST
+  url: "{{base_url}}/api/spark/core/gst/taxpayer/returns/gstr1?gstin={{gstin}}&action=RESET&ret_period=032025"
+  headers:
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  params:
+    - name: gstin
+      value: "{{gstin}}"
+      type: query
+    - name: action
+      value: RESET
+      type: query
+    - name: ret_period
+      value: "032025"
+      type: query
+  body:
+    type: json
+    data: |-
+      {
+        "gstin": "33AXTPJ8438P2ZH",
+        "ret_period": "032025"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

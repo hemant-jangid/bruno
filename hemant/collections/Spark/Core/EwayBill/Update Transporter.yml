@@ -1,0 +1,31 @@
+info:
+  name: Update Transporter
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/api/spark/core/ewb/updatetransporter"
+  headers:
+    - name: gstin
+      value: "{{gstin}}"
+    - name: irp-api-username
+      value: "{{irp-api-username}}"
+    - name: irp-api-password
+      value: "{{irp-api-password}}"
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  body:
+    type: json
+    data: |-
+      {
+      "ewbNo":"121012009006",
+      "transporterId":"08AAAFT7178A1Z8"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

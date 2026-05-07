@@ -1,0 +1,25 @@
+info:
+  name: Get Gstr2B
+  type: http
+  seq: 7
+
+http:
+  method: GET
+  url: "{{base_url}}/api/spark/prime/gst/gstr2b?gstin={{gstin}}&period=012025"
+  headers:
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  params:
+    - name: gstin
+      value: "{{gstin}}"
+      type: query
+    - name: period
+      value: "012025"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,46 @@
+info:
+  name: Pan Search
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/api/spark/prime/pan/search"
+  headers:
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  body:
+    type: json
+    data: |-
+      {
+        "pan_number": "AASFB9647G",
+        "consent": "Y"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |-
+  This API is used to digitally sign a PDF document using the signing configuration defined in Spark.
+
+  ## Request Body
+
+  | **Param Name** | **Description** | **Required/Optional** |
+  | --- | --- | --- |
+  | configId | Configuration ID generated in Spark app | Required |
+  | inputFileName | Name of the input file | Optional |
+  | outputFileName | Name of the output file. Used when signed file is pushed to FTP server. | Optional |
+  | inputFileData | Base64 encoded data of input PDF file. | Required |
+
+  ## Response Body
+
+  | **Param Name** | **Description** | **Required/Optional** |
+  | --- | --- | --- |
+  | configId | Configuration ID send in the request | Always present - same as request |
+  | inputFileName | Name of the input file | Present when same is given in request |
+  | outputFileName | Output file name used to push the signed file to FTP server. | Always present |
+  | outputFileData | Base64 encoded data of signed PDF file. | Always present |

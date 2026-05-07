@@ -1,0 +1,55 @@
+info:
+  name: Save Past Liability Breakup
+  type: http
+  seq: 9
+
+http:
+  method: PUT
+  url: "{{base_url}}/api/spark/core/gst/taxpayer/returns/gstr3b?gstin={{gstin}}&action=RETBKP&ret_period=032025"
+  headers:
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  params:
+    - name: gstin
+      value: "{{gstin}}"
+      type: query
+    - name: action
+      value: RETBKP
+      type: query
+    - name: ret_period
+      value: "032025"
+      type: query
+  body:
+    type: json
+    data: |-
+      {
+        "gstin": "33AXTPJ8438P2ZH",
+        "ret_period": "032025",
+        "breakup": [
+          {
+            "ret_period": "022025",
+            "liability": {
+              "iamt": 1000,
+              "camt": 150,
+              "samt": 200,
+              "csamt": 300
+            }
+          },
+          {
+            "ret_period": "012025",
+            "liability": {
+              "iamt": 1000,
+              "camt": 150,
+              "samt": 200,
+              "csamt": 300
+            }
+          }
+        ]
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,30 @@
+info:
+  name: Change Multi Vehicle
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/api/spark/core/ewb/changemultivehicle"
+  headers:
+    - name: gstin
+      value: "{{gstin}}"
+    - name: irp-api-username
+      value: "{{irp-api-username}}"
+    - name: irp-api-password
+      value: "{{irp-api-password}}"
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  body:
+    type: json
+    data: |-
+      
+
+      {"ewbNo":161012003646,"groupNo":"1","oldvehicleNo":"RJ27CD1111","newVehicleNo":"KA02TD9999","fromPlace":"Banglore","fromState":29,"reasonCode":"1","reasonRem":"Vehicle demaged."}
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,7 @@
+info:
+  name: Gstr-1
+  type: folder
+  seq: 1
+
+request:
+  auth: inherit

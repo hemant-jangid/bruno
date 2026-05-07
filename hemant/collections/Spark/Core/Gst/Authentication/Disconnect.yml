@@ -1,0 +1,25 @@
+info:
+  name: Disconnect
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{base_url}}/api/spark/core/gst/auth/disconnect"
+  headers:
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  body:
+    type: json
+    data: |-
+      {
+        "userName": "{{username}}",
+        "gstin": "{{gstin}}"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

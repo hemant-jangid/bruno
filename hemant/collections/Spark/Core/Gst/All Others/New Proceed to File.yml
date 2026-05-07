@@ -1,0 +1,38 @@
+info:
+  name: New Proceed to File
+  type: http
+  seq: 6
+
+http:
+  method: POST
+  url: "{{base_url}}/api/spark/core/gst/taxpayer/returns/gstrptf?gstin={{gstin}}&action=RETNEWPTF&ret_period=032025&rtn_typ=gstr1"
+  headers:
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  params:
+    - name: gstin
+      value: "{{gstin}}"
+      type: query
+    - name: action
+      value: RETNEWPTF
+      type: query
+    - name: ret_period
+      value: "032025"
+      type: query
+    - name: rtn_typ
+      value: gstr1
+      type: query
+  body:
+    type: json
+    data: |-
+      {
+        "gstin": "33AXTPJ8438P2ZH",
+        "ret_period": "032026"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,27 @@
+info:
+  name: Connect
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{base_url}}/api/spark/core/gst/auth/connect"
+  headers:
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  body:
+    type: json
+    data: |-
+      {
+        "userName": "{{username}}",
+        "gstin": "{{gstin}}",
+        "Otp":"575757",
+        "KeepAliveDays":0
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

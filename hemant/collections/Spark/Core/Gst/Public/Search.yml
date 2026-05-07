@@ -1,0 +1,25 @@
+info:
+  name: Search
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{base_url}}/api/spark/core/gst/public/search?gstin=08AASFB9647G1ZU&action=TP"
+  headers:
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  params:
+    - name: gstin
+      value: 08AASFB9647G1ZU
+      type: query
+    - name: action
+      value: TP
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,37 @@
+info:
+  name: Update Part-B
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/api/spark/core/ewb/updatepartb"
+  headers:
+    - name: gstin
+      value: "{{gstin}}"
+    - name: irp-api-username
+      value: "{{irp-api-username}}"
+    - name: irp-api-password
+      value: "{{irp-api-password}}"
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  body:
+    type: json
+    data: |
+      {
+      "ewbNo": 121012009006,
+      "vehicleNo": "RJ27CD4184",
+      "fromPlace": "BANGALORE",
+      "fromState": 29,
+      "reasonCode": "1",
+      "reasonRem": "vehicle broke down",
+      "transMode": "1",
+      "vehicleType": "R"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

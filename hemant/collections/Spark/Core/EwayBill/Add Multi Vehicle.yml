@@ -1,0 +1,29 @@
+info:
+  name: Add Multi Vehicle
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/api/spark/core/ewb/addmultivehicle"
+  headers:
+    - name: gstin
+      value: "{{gstin}}"
+    - name: irp-api-username
+      value: "{{irp-api-username}}"
+    - name: irp-api-password
+      value: "{{irp-api-password}}"
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  body:
+    type: json
+    data: |-
+      
+      {"ewbNo":161012003646,"groupNo":"1","vehicleNo":"RJ27CD1111","quantity":5}
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

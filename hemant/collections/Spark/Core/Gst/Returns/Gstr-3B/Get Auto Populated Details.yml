@@ -1,0 +1,28 @@
+info:
+  name: Get Auto Populated Details
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{base_url}}/api/spark/core/gst/taxpayer/returns/gstr3b?gstin={{gstin}}&action=AUTOLIAB&ret_period=012025"
+  headers:
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  params:
+    - name: gstin
+      value: "{{gstin}}"
+      type: query
+    - name: action
+      value: AUTOLIAB
+      type: query
+    - name: ret_period
+      value: "012025"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

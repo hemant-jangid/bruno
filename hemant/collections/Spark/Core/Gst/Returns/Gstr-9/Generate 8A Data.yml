@@ -1,0 +1,32 @@
+info:
+  name: Generate 8A Data
+  type: http
+  seq: 5
+
+http:
+  method: PUT
+  url: "{{base_url}}/api/spark/core/gst/taxpayer/returns/gstr9?gstin={{gstin}}&action=GEN8AJSN"
+  headers:
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  params:
+    - name: gstin
+      value: "{{gstin}}"
+      type: query
+    - name: action
+      value: GEN8AJSN
+      type: query
+  body:
+    type: json
+    data: |-
+      {
+        "gstin": "08AASFB9647G1ZU",
+        "fy": "2024-25"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

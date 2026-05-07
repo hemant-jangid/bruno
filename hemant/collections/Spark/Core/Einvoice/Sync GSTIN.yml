@@ -1,0 +1,31 @@
+info:
+  name: Sync GSTIN
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{base_url}}/api/spark/core/einvoice/syncgstin?gstin=33GSPTN1882G1Z3"
+  headers:
+    - name: gstin
+      value: "{{gstin}}"
+    - name: irp-api-username
+      value: "{{irp-api-username}}"
+    - name: irp-api-password
+      value: "{{irp-api-password}}"
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  params:
+    - name: gstin
+      value: 33GSPTN1882G1Z3
+      type: query
+  body:
+    type: json
+    data: ""
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

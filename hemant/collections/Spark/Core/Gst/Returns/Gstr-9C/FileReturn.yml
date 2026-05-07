@@ -1,0 +1,38 @@
+info:
+  name: FileReturn
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{base_url}}/api/spark/core/gst/taxpayer/returns/gstr9c?gstin={{gstin}}&action=RETFILE&ret_period=032025"
+  headers:
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  params:
+    - name: gstin
+      value: "{{gstin}}"
+      type: query
+    - name: action
+      value: RETFILE
+      type: query
+    - name: ret_period
+      value: "032025"
+      type: query
+  body:
+    type: json
+    data: |-
+      {
+        "st": "signer-type: EVC/DSC",
+        "data": "write-return-summary-here",
+        "pan": "signatory-pan",
+        "otp": "evc-otp",
+        "signature": "pkcs7 signature base64 encoded: required if signer-type = DSC}"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

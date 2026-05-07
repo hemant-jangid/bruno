@@ -1,0 +1,25 @@
+info:
+  name: Get Notice List
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{base_url}}/api/spark/core/gst/taxpayer/notices?gstin={{gstin}}&action=NOTCELIST"
+  headers:
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  params:
+    - name: gstin
+      value: "{{gstin}}"
+      type: query
+    - name: action
+      value: NOTCELIST
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

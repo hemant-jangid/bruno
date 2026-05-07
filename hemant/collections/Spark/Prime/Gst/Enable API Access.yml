@@ -1,0 +1,26 @@
+info:
+  name: Enable API Access
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{base_url}}/api/spark/prime/gst/enableapiaccess"
+  headers:
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  body:
+    type: json
+    data: |
+      {
+        "gstin": "34XXXXX5552C1ZO",
+        "userName": "xxx",
+        "password": "xxx"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

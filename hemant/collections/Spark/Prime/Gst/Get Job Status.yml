@@ -1,0 +1,22 @@
+info:
+  name: Get Job Status
+  type: http
+  seq: 12
+
+http:
+  method: GET
+  url: "{{base_url}}/api/spark/system/jobstatus?jobid=13246475"
+  headers:
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  params:
+    - name: jobid
+      value: "13246475"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,31 @@
+info:
+  name: Get All Details
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{base_url}}/api/spark/core/gst/taxpayer/returns/gstr2b?gstin={{gstin}}&action=GET2B&rtnprd=022026&file_num=0"
+  headers:
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  params:
+    - name: gstin
+      value: "{{gstin}}"
+      type: query
+    - name: action
+      value: GET2B
+      type: query
+    - name: rtnprd
+      value: "022026"
+      type: query
+    - name: file_num
+      value: "0"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

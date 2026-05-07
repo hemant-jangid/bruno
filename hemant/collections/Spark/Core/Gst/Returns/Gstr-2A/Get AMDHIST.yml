@@ -1,0 +1,37 @@
+info:
+  name: Get AMDHIST
+  type: http
+  seq: 12
+
+http:
+  method: GET
+  url: "{{base_url}}/api/spark/core/gst/taxpayer/returns/gstr2a?gstin={{gstin}}&action=AMDHIST&port_code=INBHD6&be_number=2106623&be_date=12-02-2025&ret_period=102025"
+  headers:
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  params:
+    - name: gstin
+      value: "{{gstin}}"
+      type: query
+    - name: action
+      value: AMDHIST
+      type: query
+    - name: port_code
+      value: INBHD6
+      type: query
+    - name: be_number
+      value: "2106623"
+      type: query
+    - name: be_date
+      value: 12-02-2025
+      type: query
+    - name: ret_period
+      value: "102025"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

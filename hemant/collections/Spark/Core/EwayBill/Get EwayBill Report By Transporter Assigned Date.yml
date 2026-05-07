@@ -1,0 +1,34 @@
+info:
+  name: Get EwayBill Report By Transporter Assigned Date
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{base_url}}/api/spark/core/ewb/getewaybillreportbytransporterassigneddate?date=20/11/2025&statecode=29"
+  headers:
+    - name: gstin
+      value: "{{gstin}}"
+    - name: irp-api-username
+      value: "{{irp-api-username}}"
+    - name: irp-api-password
+      value: "{{irp-api-password}}"
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  params:
+    - name: date
+      value: 20/11/2025
+      type: query
+    - name: statecode
+      value: "29"
+      type: query
+  body:
+    type: json
+    data: ""
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

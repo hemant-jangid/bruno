@@ -1,0 +1,141 @@
+info:
+  name: Offset Liability
+  type: http
+  seq: 10
+
+http:
+  method: PUT
+  url: "{{base_url}}/api/spark/core/gst/taxpayer/returns/gstr3b?gstin={{gstin}}&action=RETOFFSET&ret_period=012025"
+  headers:
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  params:
+    - name: gstin
+      value: "{{gstin}}"
+      type: query
+    - name: action
+      value: RETOFFSET
+      type: query
+    - name: ret_period
+      value: "012025"
+      type: query
+  body:
+    type: json
+    data: |-
+      {
+        "pdcash": [
+          {
+            "liab_ldg_id": 1233,
+            "trans_typ": 30002,
+            "ipd": 3517817,
+            "cpd": 3517817,
+            "spd": 3517817,
+            "cspd": 3517817,
+            "i_intrpd": 20,
+            "c_intrpd": 30,
+            "s_intrpd": 10,
+            "cs_intrpd": 15,
+            "c_lfeepd": 13,
+            "s_lfeepd": 13
+          },
+          {
+            "liab_ldg_id": 1234,
+            "trans_typ": 30003,
+            "ipd": 3517818,
+            "cpd": 3517819,
+            "spd": 3517567,
+            "cspd": 3517827,
+            "i_intrpd": 20,
+            "c_intrpd": 30,
+            "s_intrpd": 10,
+            "cs_intrpd": 15,
+            "c_lfeepd": 13,
+            "s_lfeepd": 13
+          }
+        ],
+        "pditc": {
+          "liab_ldg_id": 12321,
+          "trans_typ": 30002,
+          "i_pdi": 3517817,
+          "i_pdc": 2290459,
+          "i_pds": 2290459,
+          "c_pdi": 3517817,
+          "c_pdc": 2290459,
+          "s_pdi": 3517817,
+          "s_pds": 2290459,
+          "cs_pdcs": 2290459
+        },
+        "nettaxpay": [
+          {
+            "trans_typ": 30002,
+            "trans_desc": "Other than reverse charge",
+            "liab_ldg_id": 11191,
+            "sgst": {
+              "intr": 100,
+              "tx": 100,
+              "fee": 100
+            },
+            "cgst": {
+              "intr": 100,
+              "tx": 100,
+              "fee": 100
+            },
+            "cess": {
+              "intr": 100,
+              "tx": 100
+            },
+            "igst": {
+              "intr": 100,
+              "tx": 100
+            }
+          },
+          {
+            "trans_typ": 30003,
+            "trans_desc": "Reverse charge",
+            "liab_ldg_id": 11191,
+            "sgst": {
+              "intr": 100,
+              "tx": 100,
+              "fee": 100
+            },
+            "cgst": {
+              "intr": 100,
+              "tx": 100,
+              "fee": 100
+            },
+            "cess": {
+              "intr": 100,
+              "tx": 100
+            },
+            "igst": {
+              "intr": 100,
+              "tx": 100
+            }
+          }
+        ],
+        "pdnls": [
+          {
+            "liab_ldg_id": 1233,
+            "trans_typ": 30002,
+            "ipd": 100,
+            "cpd": 200,
+            "spd": 100,
+            "cspd": 200
+          },
+          {
+            "liab_ldg_id": 1234,
+            "trans_typ": 30003,
+            "ipd": 100,
+            "cpd": 200,
+            "spd": 100,
+            "cspd": 200
+          }
+        ]
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

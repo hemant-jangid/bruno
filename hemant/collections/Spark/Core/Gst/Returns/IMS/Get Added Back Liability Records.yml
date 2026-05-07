@@ -1,0 +1,31 @@
+info:
+  name: Get Added Back Liability Records
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: "{{base_url}}/api/spark/core/gst/taxpayer/returns/ims?gstin={{gstin}}&action=REJVIEW&ret_period=022024"
+  headers:
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  params:
+    - name: gstin
+      value: "{{gstin}}"
+      type: query
+    - name: action
+      value: REJVIEW
+      type: query
+    - name: ret_period
+      value: "022024"
+      type: query
+  body:
+    type: json
+    data: ""
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,31 @@
+info:
+  name: Get IMS File Details
+  type: http
+  seq: 8
+
+http:
+  method: GET
+  url: "{{base_url}}/api/spark/core/gst/taxpayer/returns/ims?gstin={{gstin}}&action=FILEDET&token=5b19c598ce854f24ada424bf4ab81cac"
+  headers:
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  params:
+    - name: gstin
+      value: "{{gstin}}"
+      type: query
+    - name: action
+      value: FILEDET
+      type: query
+    - name: token
+      value: 5b19c598ce854f24ada424bf4ab81cac
+      type: query
+  body:
+    type: json
+    data: ""
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

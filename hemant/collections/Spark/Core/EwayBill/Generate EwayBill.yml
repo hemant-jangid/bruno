@@ -1,0 +1,80 @@
+info:
+  name: Generate EwayBill
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/api/spark/core/ewb/generateewaybill"
+  headers:
+    - name: gstin
+      value: "{{gstin}}"
+    - name: irp-api-username
+      value: "{{irp-api-username}}"
+    - name: irp-api-password
+      value: "{{irp-api-password}}"
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  body:
+    type: json
+    data: |-
+      {
+        "transMode": "1",
+        "transDistance": 0,
+        "transporterName": "BSL Logistic",
+        "transporterId": "08AASFB9647G1ZU",
+        "vehicleNo": "GJ27CD7199",
+        "vehicleType": "R",
+        "supplyType": "I",
+        "subSupplyType": "1",
+        "docType": "INV",
+        "docNo": "DS-0005",
+        "docDate": "01/03/2026",
+        "transactionType": 1,
+        "fromGstin": "08AAAFT7178A1Z8",
+        "fromTrdName": "The Chemical Centre",
+        "fromAddr1": "K Lane",
+        "fromAddr2": "Ashok Nagar",
+        "fromPlace": "Udaipur",
+        "fromPincode": 313001,
+        "fromStateCode": 8,
+        "actFromStateCode": 8,
+        "toGstin": "29AASFB9647G000",
+        "toTrdName": "Blowbits Solutions LLP",
+        "toAddr1": "146, Road No 8",
+        "toAddr2": "MG Road",
+        "toPlace": "Bangalore",
+        "toPincode": 560001,
+        "toStateCode": 29,
+        "actToStateCode": 29,
+        "otherValue": 0,
+        "totalValue": 50000,
+        "totInvValue": 59000,
+        "cgstValue": 0,
+        "sgstValue": 0,
+        "igstValue": 9000,
+        "cessValue": 0,
+        "cessNonAdvolValue": 0,
+        "itemList": [
+          {
+            "productName": "Ipad",
+            "productDesc": "64 GB Black",
+            "hsnCode": "85171110",
+            "quantity": 1,
+            "qtyUnit": "NOS",
+            "taxableAmount": 50000,
+            "sgstRate": 0,
+            "cgstRate": 0,
+            "igstRate": 18,
+            "cessRate": 0,
+            "cessNonadvol": 0
+          }
+        ]
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,31 @@
+info:
+  name: OTP For EVC
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: "{{base_url}}/api/spark/core/gst/taxpayer/authenticate?gstin={{gstin}}&action=EVCOTP&pan=AXTPJ8438P&form_type=R1"
+  headers:
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  params:
+    - name: gstin
+      value: "{{gstin}}"
+      type: query
+    - name: action
+      value: EVCOTP
+      type: query
+    - name: pan
+      value: AXTPJ8438P
+      type: query
+    - name: form_type
+      value: R1
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

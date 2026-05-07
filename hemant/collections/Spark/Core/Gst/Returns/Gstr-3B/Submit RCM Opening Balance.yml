@@ -1,0 +1,38 @@
+info:
+  name: Submit RCM Opening Balance
+  type: http
+  seq: 13
+
+http:
+  method: POST
+  url: "{{base_url}}/api/spark/core/gst/taxpayer/returns/gstr3b?gstin={{gstin}}&action=SAVERCMOPNBAL"
+  headers:
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  params:
+    - name: gstin
+      value: "{{gstin}}"
+      type: query
+    - name: action
+      value: SAVERCMOPNBAL
+      type: query
+  body:
+    type: json
+    data: |-
+      {
+        "gstin": "33AXTPJ8438P2ZH",
+        "opnbal": {
+          "igst": 100,
+          "cgst": 200,
+          "sgst": 200,
+          "cess": 100
+        },
+        "action": "S"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

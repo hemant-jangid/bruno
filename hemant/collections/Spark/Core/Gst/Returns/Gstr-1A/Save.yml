@@ -1,0 +1,63 @@
+info:
+  name: Save
+  type: http
+  seq: 24
+
+http:
+  method: PUT
+  url: "{{base_url}}/api/spark/core/gst/taxpayer/returns/gstr1a?gstin={{gstin}}&action=R1ARETSAVE&ret_period=032025"
+  headers:
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  params:
+    - name: gstin
+      value: "{{gstin}}"
+      type: query
+    - name: action
+      value: R1ARETSAVE
+      type: query
+    - name: ret_period
+      value: "032025"
+      type: query
+  body:
+    type: json
+    data: |-
+      {
+      "gstin": "33AXTPJ8438P2ZH",
+        "fp": "032025",
+
+         "b2b": [
+            {
+              "inv": [
+                {
+                  "val": 1180,
+                  "itms": [
+                    {
+                      "num": 1,
+                      "itm_det": {
+                        "samt": 90,
+                        "rt": 18,
+                        "txval": 1000,
+                        "camt": 90
+                      }
+                    }
+                  ],
+                  "inv_typ": "R",
+                  "pos": "33",
+                  "idt": "18-03-2025",
+                  "rchrg": "N",
+                  "inum": "MAR25-002"
+                }
+              ],
+
+              "ctin": "33AXTPJ8438P1ZI"
+            }
+          ]
+        }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

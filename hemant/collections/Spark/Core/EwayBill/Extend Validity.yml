@@ -1,0 +1,43 @@
+info:
+  name: Extend Validity
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{base_url}}/api/spark/core/ewb/extendvalidity"
+  headers:
+    - name: gstin
+      value: "{{gstin}}"
+    - name: irp-api-username
+      value: "{{irp-api-username}}"
+    - name: irp-api-password
+      value: "{{irp-api-password}}"
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  body:
+    type: json
+    data: |-
+      {
+       "ewbNo": 161012003646,
+       "vehicleNo": "PQR1234",
+       "fromPlace":"Bengaluru",
+       "fromState":"29",
+       "remainingDistance":21,
+       "transMode":"5",
+       "extnRsnCode":1,
+       "extnRemarks":"Flood",
+       "fromPincode":560090,
+       "consignmentStatus":"T",
+       "transitType":"R",
+       "addressLine1":"Bengaluru",
+       "addressLine2":"Bengaluru",
+       "addressLine3":"Bengaluru"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

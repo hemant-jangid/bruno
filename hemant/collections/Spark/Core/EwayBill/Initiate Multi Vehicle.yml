@@ -1,0 +1,39 @@
+info:
+  name: Initiate Multi Vehicle
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/api/spark/core/ewb/initialmultivehicle"
+  headers:
+    - name: gstin
+      value: "{{gstin}}"
+    - name: irp-api-username
+      value: "{{irp-api-username}}"
+    - name: irp-api-password
+      value: "{{irp-api-password}}"
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  body:
+    type: json
+    data: |-
+      {
+        "ewbNo": 161012003646,
+        "reasonCode": "01",
+        "reasonRem": "Order too large, Vehicles required .",
+        "fromPlace": "Banglore",
+        "fromState": 29,
+        "toPlace": "Delhi",
+        "toState": 7,
+        "transMode": "1",
+        "totalQuantity": 10,
+        "unitCode": "NOS"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

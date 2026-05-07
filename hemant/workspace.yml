@@ -1,0 +1,14 @@
+opencollection: 1.0.0
+info:
+  name: "Hemant"
+  type: workspace
+
+collections:
+  - name: "Scratch Pad"
+    path: "collections/Prime Serve"
+  - name: "Spark"
+    path: "collections/Spark"
+
+specs:
+
+docs: ''

@@ -1,0 +1,31 @@
+info:
+  name: Get E-Invoices
+  type: http
+  seq: 25
+
+http:
+  method: GET
+  url: "{{base_url}}/api/spark/core/gst/taxpayer/returns/gstr1?gstin={{gstin}}&action=EINV&ret_period=032025&sec=B2B"
+  headers:
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  params:
+    - name: gstin
+      value: "{{gstin}}"
+      type: query
+    - name: action
+      value: EINV
+      type: query
+    - name: ret_period
+      value: "032025"
+      type: query
+    - name: sec
+      value: B2B
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

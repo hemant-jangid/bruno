@@ -1,0 +1,26 @@
+info:
+  name: Download File - Returns
+  type: http
+  seq: 9
+
+http:
+  method: POST
+  url: "{{base_url}}/api/spark/core/gst/files/download/returns"
+  headers:
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  body:
+    type: json
+    data: |-
+      {
+          "gstin": "33AXTPJ8438P2ZH",
+          "url": "/returns/gstr1/20240201/2e12a6be85ce4c8b93399e4daf01bc83_1.tar.gz?md5=5oLVfFU58biAcyWsmbAUQA&expires=1774772072",
+          "encryptionKey": "X46P/kA8rTGcIJpuraAQd3DQP8xdw9jNSXAgcbTHCqM="
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

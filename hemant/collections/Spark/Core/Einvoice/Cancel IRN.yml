@@ -1,0 +1,32 @@
+info:
+  name: Cancel IRN
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/api/spark/core/einvoice/cancelirn"
+  headers:
+    - name: gstin
+      value: "{{gstin}}"
+    - name: irp-api-username
+      value: "{{irp-api-username}}"
+    - name: irp-api-password
+      value: "{{irp-api-password}}"
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  body:
+    type: json
+    data: |-
+      {
+      "Irn":"118a9abb6e24930800865c554f4bf40615808e2b54e88f0cef0ac35dd7732fb4",
+      "CnlRsn":"1",
+      "CnlRem":"Wrong entry"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

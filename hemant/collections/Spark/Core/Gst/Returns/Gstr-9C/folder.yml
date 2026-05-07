@@ -1,0 +1,7 @@
+info:
+  name: Gstr-9C
+  type: folder
+  seq: 7
+
+request:
+  auth: inherit

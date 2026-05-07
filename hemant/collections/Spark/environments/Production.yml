@@ -1,0 +1,6 @@
+name: Production
+variables:
+  - name: base_url
+    value: https://cloud.octagst.com
+  - secret: true
+    name: api_key

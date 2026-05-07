@@ -1,0 +1,28 @@
+info:
+  name: Get B2CLA
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: "{{base_url}}/api/spark/core/gst/taxpayer/returns/gstr1?gstin={{gstin}}&action=B2CLA&ret_period=032025"
+  headers:
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  params:
+    - name: gstin
+      value: "{{gstin}}"
+      type: query
+    - name: action
+      value: B2CLA
+      type: query
+    - name: ret_period
+      value: "032025"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

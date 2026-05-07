@@ -1,0 +1,28 @@
+info:
+  name: Get  IRN Details
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{base_url}}/api/spark/core/gst/taxpayer/einvoice?gstin={{gstin}}&action=IRNDTL&irn=8dcc5d06551915d69c6be0bc10bfa2e2264b30d830de2e55841b2c6c7952d362"
+  headers:
+    - name: Octa-ApiKey
+      value: "{{api_key}}"
+  params:
+    - name: gstin
+      value: "{{gstin}}"
+      type: query
+    - name: action
+      value: IRNDTL
+      type: query
+    - name: irn
+      value: 8dcc5d06551915d69c6be0bc10bfa2e2264b30d830de2e55841b2c6c7952d362
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
